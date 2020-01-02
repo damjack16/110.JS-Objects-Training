@@ -17,11 +17,18 @@ const users = [
     [15, "Tawnya", "Illingworth", "tillingworthe@quantcast.com", 23, 1742.64]
 ]
 
-function fixData() {
-    users.forEach(user => {
-        const newUser = Object.assign({}, user);
-        console.log(newUser)
-    })
-
+function fixData(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = {
+            id: arr[i][0],
+            name: arr[i][1],
+            surname: arr[i][2],
+            email: arr[i][3],
+            age: arr[i][4],
+            cash: arr[i][5]
+        }
+    }
+    console.log(arr)
 }
+
 fixData(users)
