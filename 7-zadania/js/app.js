@@ -17,6 +17,7 @@ const users = [
     [15, "Tawnya", "Illingworth", "tillingworthe@quantcast.com", 23, 1742.64]
 ]
 
+// Get array of objects from start data
 function fixData(arr) {
     for (let i = 0; i < arr.length; i++) {
         arr[i] = {
@@ -28,7 +29,32 @@ function fixData(arr) {
             cash: arr[i][5]
         }
     }
-    console.log(arr)
+    console.log(users)
+}
+
+// Get sum of users cash
+function sumCash(allCash) {
+    const cash = allCash.reduce(function (prev, curr) {
+        return prev + curr.cash
+    }, 0)
+    console.log(`All users have ${cash} PLN`)
+}
+
+// Get average age of all users
+function averageAge(arr) {
+    const avgAge = arr.reduce(function (prev, curr) {
+        return prev + curr.age / arr.length
+    }, 0);
+    console.log(`Average age of all users is about ${avgAge.toFixed(2)} years old`)
+}
+
+// Get list of emails
+function createEmailsArr(arr) {
+    const mailsList = arr.map(mail => mail.email);
+    console.log(mailsList)
 }
 
 fixData(users)
+sumCash(users)
+averageAge(users)
+createEmailsArr(users)
